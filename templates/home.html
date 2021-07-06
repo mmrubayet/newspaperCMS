@@ -1,13 +1,26 @@
 <!-- templates/home.html -->
+
 {% extends 'base.html' %}
+
 {% block title %}Home{% endblock title %}
+
 {% block content %}
+
+<div class="container">
+
 {% if user.is_authenticated %}
-Hi {{ user.username }}! You are {{ user.age }} years old.
-<p><a href="{% url 'logout' %}">Log Out</a></p>
+
+  Hi {{ user.username }}! You are {{ user.age }} years old.
+  <p> <br> <a class="btn btn-sm btn-outline-info" href="{% url 'logout' %}">Log Out</a></p>
+
 {% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a> |
-<a href="{% url 'signup' %}">Sign Up</a>
+
+  <p>You are not logged in</p>
+  <a class="btn btn-primary" href="{% url 'login' %}">Log In</a> or,
+  <a class="btn btn-outline-primary" href="{% url 'signup' %}">Sign Up</a>
+
 {% endif %}
+
+</div>
+
 {% endblock content %}
